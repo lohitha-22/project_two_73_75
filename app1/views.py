@@ -29,7 +29,7 @@ def student_list(request):
 
 
 def student_update(request,id):
-    student = get_object_or_404(student,id=id)
+    std = get_object_or_404(student, id=id)
     form = student_form(instance=student)
 
     if request.method == 'POST':
