@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <table border="2">
+        <tr>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Course</th>
+            <th>Edit</th>
+            <th>Delete</th>
+        </tr>
+        {% for x in data %}
+        <tr>
+            <td>{{x.name}}</td>
+            <td>{{x.age}}</td>
+            <td>{{x.course}}</td>
+            <td>
+                <a href="{% url 'std_update' x.id %}">Edit</a>
+            </td>
+            <td>
+                <a href="{% url 'std_delete' x.id %}">Delete</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+    <hr>
+
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+
+        <input type="submit" value="submit">
+
+    </form>
+</body>
+</html>
