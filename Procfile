@@ -1,2 +1,1 @@
-
-web: gunicorn jango_deployee.wsgi 
+gunicorn jango_deployee.wsgi:application
