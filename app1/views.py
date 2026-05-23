@@ -33,7 +33,7 @@ def student_update(request,id):
     form = student_form(instance=student)
 
     if request.method == 'POST':
-        form = student_form(request.POST, instance=student)
+        form = student_form(request.POST, instance=std)
         if form.is_valid():
             form.save()
             return redirect('home_page')
